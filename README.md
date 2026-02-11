@@ -1,2 +1,3 @@
-# fix-invoice-state-display-so-it-stays-visible-and-does-not-overlap-adjacent-bott
-Exported from Caffeine project: Update pricing copy: Free includes 10 invoices/month and Pro is ₹299 with unlimited invoices
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

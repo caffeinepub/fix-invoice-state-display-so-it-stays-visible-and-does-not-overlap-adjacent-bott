@@ -1,0 +1,72 @@
+{
+  "kind": "build_request",
+  "title": "Update pricing copy: Free includes 10 invoices/month and Pro is ₹299 with unlimited invoices",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Update all user-facing pricing/plan copy to state that the Free plan includes **10 invoices per month** (replace any existing '5 invoices per month' references). Ensure this is reflected consistently on the Pricing page and Landing page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ],
+        "quotes": [
+          "amend the pricing to include 10 invoices per month under free plan and pro plan of Rs 299 with unlimited invoices"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On `frontend/src/pages/PricingPage.tsx`, the Free plan feature list shows '10 invoices per month' instead of '5 invoices per month'.",
+        "On `frontend/src/pages/LandingPage.tsx`, any mentions of '5 invoices per month' (features section and pricing preview section) are updated to '10 invoices per month'.",
+        "No remaining UI text in these pages claims the Free plan is limited to 5 invoices/month."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Update any dashboard plan-limit messaging that references the Free plan monthly invoice limit so it aligns with **10 invoices per month**.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ],
+        "quotes": [
+          "amend the pricing to include 10 invoices per month under free plan and pro plan of Rs 299 with unlimited invoices"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On `frontend/src/pages/Dashboard.tsx`, the Free plan usage string '(3/5 invoices used this month)' is updated so the denominator reflects a 10-invoice/month Free plan (e.g., '(3/10 invoices used this month)' if keeping the same placeholder usage count).",
+        "No other dashboard text contradicts the '10 invoices/month' Free plan limit."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Confirm Pro plan pricing and invoice entitlement are consistent across the app: **₹299/month** and **Unlimited invoices** wherever Pro plan pricing/features are displayed.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-latest"
+        ],
+        "quotes": [
+          "pro plan of Rs 299 with unlimited invoices"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On `frontend/src/pages/PricingPage.tsx`, Pro plan continues to display ₹299/month and 'Unlimited invoices'.",
+        "On `frontend/src/pages/LandingPage.tsx`, Pro plan continues to display ₹299/month and 'Unlimited invoices'.",
+        "No user-facing Pro plan copy in these pages contradicts 'Unlimited invoices' or the ₹299/month price."
+      ]
+    }
+  ],
+  "constraints": [
+    "Use English for all user-facing text.",
+    "Do not edit any files under `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`, or anything in `frontend/src/components/ui`."
+  ],
+  "nonGoals": [
+    "Implementing or enforcing invoice quota limits in backend/business logic (this change request is for pricing/plan copy consistency only).",
+    "Changing Stripe configuration, product/catalog management, or checkout flow behavior beyond reflecting the stated ₹299/month Pro pricing already present."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
