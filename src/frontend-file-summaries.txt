@@ -14,5 +14,6 @@
   "frontend/src/lib/states.ts": "Comprehensive list of all Indian states and union territories for state selection dropdowns.",
   "frontend/src/lib/gst.ts": "GST calculation utility that computes subtotal, tax amounts, and determines inter-state vs intra-state taxation logic.",
   "frontend/src/index.css": "Global styles with OKLCH color system, Indian flag-inspired color palette, utility classes, state select dropdown styling with max-height constraint for exactly ~3 visible items (8rem) with enhanced scrollbar visibility and styling, and print-specific CSS rules for invoice preview to ensure proper layout in PDF exports.",
-  "frontend/index.html": "HTML entry point with SEO meta tags, GST Invoice Pro title, and html2pdf.js CDN script for PDF generation."
+  "frontend/index.html": "HTML entry point with SEO meta tags, GST Invoice Pro title, and html2pdf.js CDN script for PDF generation.",
+  "frontend/DEPLOYMENT.md": "Production deployment guide documenting the process to deploy the current draft build to the Internet Computer mainnet, including deployment commands, verification checklist for all app features (authentication, invoice creation, payment flow, GST calculations), Stripe configuration steps, and rollback procedures."
 }

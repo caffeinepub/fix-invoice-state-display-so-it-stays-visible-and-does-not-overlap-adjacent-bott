@@ -2,11 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-all-user-facing-pricing-plan-copy-to-state-that-the-free-plan-includes-10-invoices-per-month-replace-any-existing-5-invoices-per-month-references-ensure-this-is-reflected-consistently-on-the-pricing-page-and-landing-page",
-      "featureTitle": "Update all user-facing pricing/plan copy to state that the Free plan includes **10 invoices per month** (replace any existing '5 invoices per month' references). Ensure this is reflected consistently on the Pricing page and Landing page.",
+      "featureId": "feature-publish-deploy-the-currently-built-draft-version-of-the-application-to-production-so-the-live-app-reflects-the-latest-draft-state",
+      "featureTitle": "Publish (deploy) the currently built draft version of the application to production so the live app reflects the latest draft state.",
       "files": [
-        "frontend/src/pages/LandingPage.tsx",
-        "frontend/src/pages/PricingPage.tsx"
+        "frontend/DEPLOYMENT.md"
       ],
       "components": [
         "authorization@4.0.0",
@@ -21,51 +20,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-any-dashboard-plan-limit-messaging-that-references-the-free-plan-monthly-invoice-limit-so-it-aligns-with-10-invoices-per-month",
-      "featureTitle": "Update any dashboard plan-limit messaging that references the Free plan monthly invoice limit so it aligns with **10 invoices per month**.",
-      "files": [
-        "frontend/src/pages/Dashboard.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "blob-storage@4.0.0",
-        "stripe@3.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "http-outcalls@3.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-confirm-pro-plan-pricing-and-invoice-entitlement-are-consistent-across-the-app-299-month-and-unlimited-invoices-wherever-pro-plan-pricing-features-are-displayed",
-      "featureTitle": "Confirm Pro plan pricing and invoice entitlement are consistent across the app: **₹299/month** and **Unlimited invoices** wherever Pro plan pricing/features are displayed.",
-      "files": [
-        "frontend/src/pages/LandingPage.tsx",
-        "frontend/src/pages/PricingPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "blob-storage@4.0.0",
-        "stripe@3.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "http-outcalls@3.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
       ],
       "confidence": "high"
     }

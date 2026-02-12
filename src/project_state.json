@@ -1,45 +1,22 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Invoice app with updated pricing plans: Free plan includes 10 invoices/month; Pro plan costs Rs 299 with unlimited invoices.",
+  "summary": "New project",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-update-all-user-facing-pricing-plan-copy-to-state-that-the-free-plan-includes-10-invoices-per-month-replace-any-existing-5-invoices-per-month-references-ensure-this-is-reflected-consistently-on-the-pricing-page-and-landing-page",
-      "title": "Update all user-facing pricing/plan copy to state that the Free plan includes **10 invoices per month** (replace any existing '5 invoices per month' references). Ensure this is reflected consistently on the Pricing page and Landing page.",
+      "id": "feature-publish-deploy-the-currently-built-draft-version-of-the-application-to-production-so-the-live-app-reflects-the-latest-draft-state",
+      "title": "Publish (deploy) the currently built draft version of the application to production so the live app reflects the latest draft state.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
-    },
-    {
-      "id": "feature-update-any-dashboard-plan-limit-messaging-that-references-the-free-plan-monthly-invoice-limit-so-it-aligns-with-10-invoices-per-month",
-      "title": "Update any dashboard plan-limit messaging that references the Free plan monthly invoice limit so it aligns with **10 invoices per month**.",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-confirm-pro-plan-pricing-and-invoice-entitlement-are-consistent-across-the-app-299-month-and-unlimited-invoices-wherever-pro-plan-pricing-features-are-displayed",
-      "title": "Confirm Pro plan pricing and invoice entitlement are consistent across the app: **₹299/month** and **Unlimited invoices** wherever Pro plan pricing/features are displayed.",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
     }
   ],
-  "new_feature_requests": [
-    {
-      "id": "AR-1",
-      "summary": "Update pricing plans: Free includes 10 invoices/month; Pro is Rs 299 with unlimited invoices",
-      "reqIds": [],
-      "status": "pending"
-    }
-  ],
-  "projectName": "Update pricing copy: Free includes 10 invoices/month and Pro is ₹299 with unlimited invoices",
+  "new_feature_requests": [],
+  "projectName": "Publish current draft to production",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
