@@ -1,12 +1,12 @@
 {
   "kind": "build_request",
-  "title": "Publish current draft to production",
+  "title": "Publish current draft build to production",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Publish (deploy) the currently built draft version of the application to production so the live app reflects the latest draft state.",
-      "target": "unknown",
+      "text": "Complete and correct the production deployment documentation so a developer can reliably publish the current draft build to the Internet Computer mainnet using DFX, including all required commands and a verification checklist.",
+      "target": "frontend",
       "source": {
         "messageIds": [
           "msg-11"
@@ -16,17 +16,23 @@
         ]
       },
       "acceptanceCriteria": [
-        "A production deployment is triggered from the current draft build.",
-        "After deployment completes, the production app is accessible and reflects the same behavior/content as the latest draft."
+        "`frontend/DEPLOYMENT.md` contains a complete, copy/paste-ready sequence of commands to deploy to `--network ic`, with no placeholder or truncated sections.",
+        "The guide includes explicit steps for: selecting the correct DFX identity, ensuring the correct canister IDs are used for production, deploying backend and frontend assets, and confirming the app loads successfully on mainnet.",
+        "The guide documents how an admin configures Stripe in production (including where/how to call the backend method that sets Stripe configuration) and notes that the operation requires admin permissions.",
+        "The guide includes a post-deploy verification checklist covering at minimum: Internet Identity login/logout, landing page load, invoice creation + PDF export, pricing page checkout session creation, and payment success/failure routes.",
+        "The guide includes a rollback/redeploy note describing how to redeploy a previous known-good build (high-level, using DFX) if the production publish fails."
       ]
     }
   ],
   "constraints": [
-    "Use English for any user-facing text."
+    "Do not modify files under `frontend/src/components/ui`.",
+    "Do not edit immutable hook files: `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`.",
+    "Backend must remain a single-actor Motoko canister (`backend/main.mo`)."
   ],
   "nonGoals": [
-    "Do not implement new features or modify application code/content beyond what is already in the current draft.",
-    "Do not change Stripe configuration, authentication, or pricing logic as part of publishing."
+    "Adding an in-app “Publish” button or any UI-driven deployment workflow.",
+    "Integrating third-party CI/CD providers or cloud deployment pipelines.",
+    "Changing product features, pricing, or payment flow behavior beyond what is required to document deployment."
   ],
   "imageRequirements": {
     "required": [],

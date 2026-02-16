@@ -1,20 +1,23 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Publish current draft to production",
+  "title": "Production deployment documentation for Internet Computer mainnet (DFX)",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Document a production release procedure that deploys the current draft build without changing app behavior or configuration.",
+      "summary": "Expand `frontend/DEPLOYMENT.md` into a complete, copy/paste-ready mainnet deployment guide with Stripe admin configuration instructions, verification checklist, and rollback notes.",
       "acceptanceCriteria": [
-        "A production deployment is triggered from the current draft build.",
-        "After deployment completes, the production app is accessible and reflects the same behavior/content as the latest draft."
+        "`frontend/DEPLOYMENT.md` contains a complete, copy/paste-ready sequence of commands to deploy to `--network ic`, with no placeholder or truncated sections.",
+        "The guide includes explicit steps for: selecting the correct DFX identity, ensuring the correct canister IDs are used for production, deploying backend and frontend assets, and confirming the app loads successfully on mainnet.",
+        "The guide documents how an admin configures Stripe in production (including where/how to call the backend method that sets Stripe configuration) and notes that the operation requires admin permissions.",
+        "The guide includes a post-deploy verification checklist covering at minimum: Internet Identity login/logout, landing page load, invoice creation + PDF export, pricing page checkout session creation, and payment success/failure routes.",
+        "The guide includes a rollback/redeploy note describing how to redeploy a previous known-good build (high-level, using DFX) if the production publish fails."
       ],
       "file_operations": [
         {
           "path": "frontend/DEPLOYMENT.md",
-          "operation": "create",
-          "description": "Add English-only release documentation describing how to trigger a production deployment from the current draft build using the existing project deployment tooling/pipeline (without modifying application code, Stripe configuration, authentication, or pricing logic), plus a short verification checklist to confirm production matches the latest draft behavior/content."
+          "operation": "modify",
+          "description": "Replace the current truncated content with a complete production deployment document for deploying to the IC mainnet via DFX. Include: (1) prerequisites and safety checks, (2) identity selection and verification, (3) confirming production canister IDs are correct for `--network ic`, (4) copy/paste-ready commands to deploy backend + frontend assets to mainnet, (5) how to verify the deployed app loads, (6) Stripe production configuration instructions that explicitly reference calling the backend method `setStripeConfiguration(...)` and clearly note it is admin-only (authorization/role-based access control), (7) a post-deploy verification checklist covering Internet Identity login/logout, landing page, invoice creation + PDF export, pricing checkout session creation, and payment success/failure routes, and (8) a rollback/redeploy note for returning to a previous known-good build using DFX at a high level. Verify the component's usage instructions before implementing."
         }
       ]
     }

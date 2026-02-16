@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-publish-deploy-the-currently-built-draft-version-of-the-application-to-production-so-the-live-app-reflects-the-latest-draft-state",
-      "featureTitle": "Publish (deploy) the currently built draft version of the application to production so the live app reflects the latest draft state.",
+      "featureId": "feature-complete-and-correct-the-production-deployment-documentation-so-a-developer-can-reliably-publish-the-current-draft-build-to-the-internet-computer-mainnet-using-dfx-including-all-required-commands-and-a-verification-checklist",
+      "featureTitle": "Complete and correct the production deployment documentation so a developer can reliably publish the current draft build to the Internet Computer mainnet using DFX, including all required commands and a verification checklist.",
       "files": [
         "frontend/DEPLOYMENT.md"
       ],

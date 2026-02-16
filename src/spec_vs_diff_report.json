@@ -1,53 +1,68 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-12T10:27:29.575Z",
-  "summary": "The diff primarily adds documentation and modifies backend application code (Stripe configuration, access control checks, user profiles), but does not show an actual production deployment being triggered from the current draft build. Several changes appear to introduce/modify application logic beyond the stated publishing-only scope.",
+  "generatedAt": "2026-02-15T07:44:37.477Z",
+  "summary": "REQ-1 asks only for complete production deployment documentation in `frontend/DEPLOYMENT.md`. The diff shows `frontend/DEPLOYMENT.md` was edited, but the visible content appears truncated/garbled and does not provide the required copy/paste-ready DFX mainnet deployment commands, Stripe admin configuration instructions with the exact backend call, a full verification checklist, or a rollback/redeploy note (at least not in the shown excerpt). Additionally, the diff includes changes/metadata unrelated to deployment documentation (e.g., `frontend-file-summaries.txt` describing numerous app/UI changes) which were not requested.",
   "missing_requirements": [
     {
       "id": "REQ-1",
-      "requirement": "Trigger a production deployment from the current draft build so the live app reflects the latest draft state.",
-      "reason": "The diff shows a new deployment guide document, but no evidence of an actual deployment trigger/configuration (e.g., CI/CD workflow changes, DFX deploy scripts/configs, environment/mainnet targets) that would perform the production deployment. The added DEPLOYMENT.md content is truncated and does not demonstrate implemented deployment automation or configuration changes that effect deployment.",
+      "requirement": "`frontend/DEPLOYMENT.md` contains a complete, copy/paste-ready sequence of commands to deploy to `--network ic`, with no placeholder or truncated sections.",
+      "reason": "In the shown excerpt, the guide stops right after “List all available identities:” and then contains an apparent broken code block / unrelated content (`- project_state.json`), with no actual DFX commands visible for identity selection, canister ID verification, or deploying to `--network ic`.",
       "evidence": [
-        "frontend/DEPLOYMENT.md (added, truncated)",
-        "project_state.json (REQ-1 still marked pending)"
+        "frontend/DEPLOYMENT.md"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "Guide includes explicit steps for selecting the correct DFX identity, ensuring correct production canister IDs, deploying backend and frontend assets, and confirming the app loads successfully on mainnet.",
+      "reason": "The excerpt only begins the identity section and does not show steps/commands for checking canister IDs, deploying backend/frontend to `--network ic`, or confirming the deployed app loads on mainnet.",
+      "evidence": [
+        "frontend/DEPLOYMENT.md"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "Guide documents how an admin configures Stripe in production (including where/how to call the backend method that sets Stripe configuration) and notes that the operation requires admin permissions.",
+      "reason": "While prerequisites mention admin access and Stripe keys, the excerpt does not show any concrete instructions or the command/call to the backend method that sets Stripe configuration.",
+      "evidence": [
+        "frontend/DEPLOYMENT.md"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "Guide includes a post-deploy verification checklist covering at minimum: Internet Identity login/logout, landing page load, invoice creation + PDF export, pricing page checkout session creation, and payment success/failure routes.",
+      "reason": "No verification checklist is present in the visible portion of the file.",
+      "evidence": [
+        "frontend/DEPLOYMENT.md"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "Guide includes a rollback/redeploy note describing how to redeploy a previous known-good build (high-level, using DFX) if the production publish fails.",
+      "reason": "No rollback/redeploy guidance is present in the visible portion of the file.",
+      "evidence": [
+        "frontend/DEPLOYMENT.md"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Backend Stripe configuration management and related authorization logic changes (e.g., setStripeConfiguration, isStripeConfigured, getStripeSessionStatus authorization checks).",
-      "reason": "BuildRequest explicitly states this is a publish-only task and non-goal includes not changing Stripe configuration/auth/pricing logic. The diff modifies backend code in these areas, which is beyond the requested deployment action.",
-      "evidence": [
-        "backend/main.mo"
-      ]
-    },
-    {
-      "description": "User profile storage and access-controlled profile endpoints (getCallerUserProfile, getUserProfile, saveCallerUserProfile).",
-      "reason": "Not requested by REQ-1 (deployment only) and constitutes application feature/code changes.",
-      "evidence": [
-        "backend/main.mo"
-      ]
-    },
-    {
-      "description": "Added a production deployment guide that includes verification of app features and mentions Stripe configuration steps/rollback procedures.",
-      "reason": "REQ-1 asks to publish/deploy; adding extensive new documentation and Stripe configuration steps is not requested and risks violating the non-goal of not changing/handling Stripe configuration as part of publishing (even if only documented).",
-      "evidence": [
-        "frontend/DEPLOYMENT.md",
-        "frontend-file-summaries.txt (DEPLOYMENT.md description)"
-      ]
-    },
-    {
-      "description": "Frontend feature/content changes implied by updated summaries (invoice creator dropdown behavior, dashboard usage stats, pricing/payment pages, invoice preview PDF/print CSS).",
-      "reason": "The BuildRequest non-goal says not to modify application code/content beyond what is already in the current draft; the diff summary suggests multiple UI/feature adjustments that are not part of “publish current draft to production.” (Note: actual code diffs for these files are not shown, but the summaries indicate such changes.)",
+      "description": "Project-wide frontend feature/UI changes (routes/pages, pricing limits, invoice creator UI, PDF behavior, etc.)",
+      "reason": "The BuildRequest explicitly scopes to deployment documentation only (REQ-1) and includes non-goals about changing product behavior. The diff includes `frontend-file-summaries.txt` describing extensive app changes unrelated to documenting deployment.",
       "evidence": [
         "frontend-file-summaries.txt"
       ]
+    },
+    {
+      "description": "Addition/maintenance of a `project_state.json`-like artifact shown inside the deployment doc excerpt",
+      "reason": "Not requested by the BuildRequest; appears as unrelated content embedded in the `frontend/DEPLOYMENT.md` excerpt.",
+      "evidence": [
+        "frontend/DEPLOYMENT.md"
+      ]
     }
   ],
-  "confidence": 0.68,
+  "confidence": 0.6,
   "changed_files": [
-    "backend/main.mo",
     "frontend-file-summaries.txt",
     "frontend/DEPLOYMENT.md",
     "project_state.json"

@@ -1,14 +1,14 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 5,
   "summary": "New project",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-publish-deploy-the-currently-built-draft-version-of-the-application-to-production-so-the-live-app-reflects-the-latest-draft-state",
-      "title": "Publish (deploy) the currently built draft version of the application to production so the live app reflects the latest draft state.",
+      "id": "feature-complete-and-correct-the-production-deployment-documentation-so-a-developer-can-reliably-publish-the-current-draft-build-to-the-internet-computer-mainnet-using-dfx-including-all-required-commands-and-a-verification-checklist",
+      "title": "Complete and correct the production deployment documentation so a developer can reliably publish the current draft build to the Internet Computer mainnet using DFX, including all required commands and a verification checklist.",
       "reqIds": [
         "REQ-1"
       ],
@@ -16,7 +16,7 @@
     }
   ],
   "new_feature_requests": [],
-  "projectName": "Publish current draft to production",
+  "projectName": "Publish current draft build to production",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
